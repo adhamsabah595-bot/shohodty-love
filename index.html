@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شهودتي 🤍</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;min-height:100vh;display:flex;align-items:center;
+justify-content:center;text-align:center;padding:20px;
+font-family:Arial,sans-serif;color:#fff;
+background:linear-gradient(135deg,#240817,#701d43,#170c28);
+overflow-x:hidden
+}
+main{width:100%;max-width:420px;position:relative;z-index:1}
+h1{color:#ffc4dc;font-size:30px}
+p{line-height:2}
+.envelope{
+margin:35px auto;width:220px;height:145px;
+background:#ffb6d0;position:relative;border-radius:8px;
+display:flex;align-items:center;justify-content:center;
+cursor:pointer;box-shadow:0 0 35px #ff8db866;
+color:#742044;font-size:45px
+}
+.envelope:before{
+content:"";position:absolute;top:0;left:0;width:0;height:0;
+border-left:110px solid transparent;border-right:110px solid transparent;
+border-top:85px solid #ff8fba
+}
+.envelope span{position:relative;z-index:1;margin-top:30px}
+.letter{
+display:none;background:#fff0f6;color:#692340;
+padding:22px;border-radius:15px;line-height:2;
+animation:show .8s ease
+}
+button{
+border:0;border-radius:25px;padding:13px 22px;
+background:#ffb6d0;color:#51162f;font-size:16px;
+cursor:pointer;margin:8px
+}
+.heart{position:fixed;bottom:-30px;animation:float 6s linear infinite;opacity:.7}
+@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@keyframes show{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<main>
+<h1>إلى شهودتي 🤍</h1>
+<p>في جواب صغير مستنيكي تفتحيه يا أجمل حاجة في قلبي 💌</p>
+<div class="envelope" id="env" onclick="openLetter()">
+<span>💌</span>
+</div>
+<p id="hint">اضغطي على الجواب عشان تفتحيه 🤍</p>
+<section class="letter" id="letter">
+<h2>شهودتي، يا حتة من قلبي ❤️</h2>
+<p>
+يمكن الكلام مش هيقدر يوصف إنتِ غالية عندي قد إيه،
+بس حابب أقولك إن وجودك بيفرق معايا،
+وإن ابتسامتك بتخلّي يومي أحلى.
+<br>
+ربنا يديمك فرحة في حياتي،
+ويكتب لنا الخير والسعادة دايمًا.
+<br>
+بحبك يا شهودتي 🤍
+</p>
+</section>
+<button onclick="music()">🎵 شغّلي الموسيقى</button>
+<p style="font-size:12px;color:#f7c9dd">مع كل الحب 🤍</p>
+</main>
+<audio id="song" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+<script>
+function openLetter(){
+document.getElementById('letter').style.display='block';
+document.getElementById('hint').style.display='none';
+document.getElementById('env').style.display='none';
+}
+function music(){
+const s=document.getElementById('song');
+if(s.paused){s.play().catch(()=>alert('اضغطي مرة تانية لتشغيل الموسيقى'));}else{s.pause();}
+}
+for(let i=0;i<18;i++){
+let h=document.createElement('div');
+h.className='heart';h.textContent='🤍';
+h.style.left=Math.random()*100+'%';
+h.style.animationDelay=Math.random()*6+'s';
+h.style.fontSize=(15+Math.random()*20)+'px';
+document.body.appendChild(h);
+}
+</script>
+</body>
+</html>
